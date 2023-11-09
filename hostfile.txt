@@ -1,3 +1,0 @@
-[group]
-35.175.183.9 ansible_user=target1 ansible_password=12345 apache_port=80
-54.158.22.245 ansible_user=target1 ansible_password=12345 apache_port=8080
