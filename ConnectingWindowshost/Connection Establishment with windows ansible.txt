@@ -1,0 +1,99 @@
+Usecase:
+
+1.To establish a connection from an Ansible controller to a Windows host.
+2.Installation of web browser on windows host.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# There are two ways to connect ansible controller to a windows host.
+  
+                 1. WinRM (Windows Remote Management)----------recommended
+
+                 2. SSH with OpenSSH for Windows
+
+
+Note: It's important to note that while SSH can be used with Windows via OpenSSH, it may not provide the same level of native support and Windows-specific features as WinRM.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Steps to connect an ansible controller to a windows host:
+
+Step 1: Prepare the Ansible Controller (Install ansible & pywinrm in controller machine).
+
+Step 2: Configure the Ansible Controller (host file)
+
+Step 3: Configure the Windows Host
+
+- You need to have Powershell 3.0 and .NET Framework 4.0 present on the windows machine.
+  
+- Install WinRM: Ensure that WinRM is installed and configured on the Windows host. You can use PowerShell to configure it.
+
+Note:https://geekflare.com/connecting-windows-ansible-from-ubuntu/
+
+Script link: https://gist.github.com/trondhindenes/2cd162d4b17c2c28ec40
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Powershell:
+
+PowerShell as a powerful scripting and automation tool for managing and interacting with Windows systems and services. PowerShell is designed to be a versatile scripting language that allows users to write scripts and automate a wide range of tasks in the Windows environment.
+
+
+WinRm:
+
+WinRM, which stands for Windows Remote Management, is a Windows-based management protocol and service that allows remote management and automation of Windows-based systems.
+
+Pywinrm:
+
+Python library for interacting with Windows hosts through the Windows Remote Management (WinRM) protocol.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Command used:
+
+1. Get-Host : To see the version of powershell
+2. python3 --version: To check python installed or not
+3. pip3 --version: To check pip3 installed or not
+4. pip3 show pywinrm: To check pywinrm is not installed or not
+5. pip3 install pywinrm: To install pywinrm
+6. winrm enumerate winrm/config/Listener: To see which ports are configured in winrm
+7. winrm set winrm/config/service '@{AllowUnencrypted="true"}': To allow the unencrypted traffic
+8. winrm set winrm/config/service/auth '@{Basic="true"}': To do baisc authentication
+9. winrm get winrm/config/service
+10.winrm set winrm/config/listener?Address=*+Transport=HTTP '@{Port="5985"}'
+11.winrm delete winrm/config/Listener?Address=*+Transport=HTTP
+
+Challenges faced:
+
+1. WinRM Configuration
+2. Firewall Rules
+3. SSL/TLS Issues
+4. Execution Policy in powershell 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+---
+- name: Insatll Web browser in windwos target machine
+  hosts: windows
+  tasks:
+    - name: Install chrome
+      win_chocolatey:
+           name: googlechrome
+           state: present
+    

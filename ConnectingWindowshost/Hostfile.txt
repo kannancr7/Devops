@@ -1,0 +1,11 @@
+[windows]
+windows10 ansible_host=172.31.46.8
+
+
+[windows:vars]
+ansible_user=Administrator
+ansible_password=k;&zH5hkdhI0F.Dp)y2iwpdVn7Q;N3Ib
+ansible_port=5985
+ansible_connection=winrm
+ansible_winrm_transport=basic
+ansible_winrm_server_cert_validation=ignore
